@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     const newTodo = {
       id: uuidv4(), 
       todo: data.todo,
-      isCompleted: data.isCompleted || false,
+      isCompleted: data.isCompleted,
       createdAt: new Date().toISOString(),
     };
     // todos.push(newTodo); 
