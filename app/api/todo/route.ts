@@ -23,7 +23,7 @@ export async function POST(request: Request) {
       isCompleted: data.isCompleted || false,
       createdAt: new Date().toISOString(),
     };
-    todos.push(newTodo); 
+    // todos.push(newTodo); 
     return NextResponse.json({ success: true, todo: newTodo }, { status: 201 });
   } catch (error) {
     console.error('Failed to create todo:', error);
