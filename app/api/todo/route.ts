@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { v4 as uuidv4 } from "uuid";
 
+let increID = 4;
 const todos = [
   { id: "1", todo: "Basic Requirement", isCompleted: true, createdAt: new Date().toISOString() },
   { id: "2", todo: "Building more functionalities", isCompleted: true, createdAt: new Date().toISOString() },
@@ -17,8 +18,9 @@ export async function POST(request: Request) {
     if (!data.todo) {
       return NextResponse.json({ success: false, message: 'Todo cannot be empty' }, { status: 400 });
     }
+    let newID = increID++
     const newTodo = {
-      id: uuidv4(), 
+      id: newID, 
       todo: data.todo,
       isCompleted: data.isCompleted,
       createdAt: new Date().toISOString(),

@@ -89,6 +89,7 @@ export default function Home() {
           },
           body: JSON.stringify(newTodo)})
           const result = await response.json();
+          console.log(result);          
           if (result.success) {
             const updatedList = [...renderList, result.todo];
             setRenderList(updatedList);
